@@ -1,0 +1,13 @@
+{
+    "tasks": [
+        {
+            "id": "1",
+            "text": "buy apples"
+        },
+
+        {
+            "id": "2",
+            "text": "buy pineapples"
+        }
+    ]
+}

@@ -1,2 +1,2 @@
-import Tasks from "./ui/Tasks";
-export default Tasks;
+import Task from "./ui/Task";
+export default Task;

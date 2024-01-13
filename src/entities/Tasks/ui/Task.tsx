@@ -1,7 +1,9 @@
 import React from 'react'
 import { TodoListProps } from '../types';
 
-const Tasks:React.FC<TodoListProps> = ({tasks}) => {
+import Tasks from '@/widgets/Tasks/ui/Tasks';
+
+const Task:React.FC<TodoListProps> = ({tasks}) => {
   return (
     <div>
         <div className="overflow-x-auto">
@@ -16,10 +18,7 @@ const Tasks:React.FC<TodoListProps> = ({tasks}) => {
                 <tbody>
                 {/* row 1 */}
                 {tasks.map(tasks =>(
-                    <tr key={tasks.id}>
-                        <td>{tasks.text}</td>
-                        <td>Quality Control Specialist</td>
-                    </tr>
+                   <Tasks  key={tasks.id} tasks = {tasks}/>
                 ))}
                 </tbody>
             </table>
@@ -28,4 +27,4 @@ const Tasks:React.FC<TodoListProps> = ({tasks}) => {
   )
 }
 
-export default Tasks;
+export default Task;

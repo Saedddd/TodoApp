@@ -1,13 +1,16 @@
 {
-    "tasks": [
-        {
-            "id": "1",
-            "text": "buy apples"
-        },
-
-        {
-            "id": "2",
-            "text": "buy pineapples"
-        }
-    ]
+  "tasks": [
+    {
+      "id": "1",
+      "text": "buy apples"
+    },
+    {
+      "id": "2",
+      "text": "buy pineapples"
+    },
+    {
+      "id": "3",
+      "text": "To go gym"
+    }
+  ]
 }

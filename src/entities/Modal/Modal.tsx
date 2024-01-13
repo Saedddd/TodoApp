@@ -6,12 +6,13 @@ import { ModalProps } from './types'
   return (
     <div className={`modal ${modalOpen ? "modal-open" : ""}`} role="dialog">
       <div className="modal-box">
+        
+            <form method="dialog">
+              <button onClick={() => onClose()} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            </form>
 
           {children}
 
-          <div className="modal-action">
-            <label onClick={() => onClose()} className="btn">Close!</label>
-          </div>
 
       </div>
   </div>

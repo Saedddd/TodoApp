@@ -7,18 +7,21 @@ const Task:React.FC<TodoListProps> = ({tasks}) => {
   return (
     <div>
         <div className="overflow-x-auto">
-            <table className="table">
+            <table className="table w-full">
                 {/* head */}
                 <thead>
                     <tr>
-                        <th>Task</th>
+                        <th>Tasks</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                 {/* row 1 */}
                 {tasks.map(tasks =>(
-                   <Tasks  key={tasks.id} tasks = {tasks}/>
+                   <Tasks  
+                        key={tasks.id}
+                        tasks = {tasks}
+                   />
                 ))}
                 </tbody>
             </table>

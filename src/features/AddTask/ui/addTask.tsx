@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { FaPlus } from "react-icons/fa";
 import Modal from '@/entities/Modal/Modal';
 import { addTodo } from '@/shared/api/TaskApi';
+import { v4 as uuidv4 } from 'uuid';
 
 const AddTask = () => {
     const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -16,7 +17,7 @@ const AddTask = () => {
     const handleSubmitNewToDo: FormEventHandler<HTMLFormElement> = async (e) => {
       e.preventDefault();
       await addTodo({
-        id: "3",
+        id: uuidv4(),
         text: newTaskValue,
       })
       setnewTaskValue("");

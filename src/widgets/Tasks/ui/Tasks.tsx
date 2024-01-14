@@ -8,11 +8,11 @@ import { FiEdit } from "react-icons/fi";
 import { FiTrash2 } from "react-icons/fi";
 
 import Modal from '@/entities/Modal/Modal';
-import { editTodo } from '@/shared/api/TaskApi';
+import { deleteTodo, editTodo } from '@/shared/api/TaskApi';
 
 const Tasks:React.FC<TaskProps> = ({tasks}) => {
   const [modalOpen, setModalOpen]  = useState<boolean>(false);
-  const [todoDelete, setTodoDelete] = useState<boolean>(false);
+  const [openModalDeleted, setOpenModalDeleted] = useState<boolean>(false);
   const [todoEdit, setTodoEdit] = useState<string>(tasks.text);
 
 
@@ -26,6 +26,12 @@ const Tasks:React.FC<TaskProps> = ({tasks}) => {
 
     setTodoEdit('');
     setModalOpen(false);
+  }
+
+
+  const handleDeleteTask = async (id: string) =>{
+    await deleteTodo(id);
+    setOpenModalDeleted(false); 
   }
 
 
@@ -62,7 +68,20 @@ const Tasks:React.FC<TaskProps> = ({tasks}) => {
 
               </Modal>
 
-              <FiTrash2 />
+              <FiTrash2 onClick = {() => setOpenModalDeleted(true)}/>
+
+              <Modal modalOpen={openModalDeleted} onClose={() => setOpenModalDeleted(false)}>
+                  <h3 className='text-lg'>
+                    Are you sure, you want to delete this task?
+                  </h3>
+                  <div className='modal-action'>
+                    <button onClick={() => handleDeleteTask(tasks.id)} className='btn'>
+                      Yes
+                    </button>
+                  </div>
+              </Modal>
+
+
             </td>
         </tr>
     </>
